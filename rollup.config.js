@@ -7,16 +7,16 @@ const autoprefixer = require('autoprefixer');
 // the entry point for the library
 const input = 'src/index.js'
 
-// 
+//
 var MODE = [
   {
-    fomart: 'cjs'
+    format: 'cjs'
   },
   {
-    fomart: 'esm'
+    format: 'esm'
   },
   {
-    fomart: 'umd'
+    format: 'umd'
   }
 ]
 
@@ -28,12 +28,12 @@ MODE.map((m) => {
         output: {
             // then name of your package
             name: "react-rails-pagination",
-            file: `dist/index.${m.fomart}.js`,
-            format: m.fomart,
+            file: `dist/index.${m.format}.js`,
+            format: m.format,
             exports: "auto"
         },
         // this externelizes react to prevent rollup from compiling it
-        external: ["react", /@babel\/runtime/],
+        external: ["react", "react-dom", "prop-type", /@babel\/runtime/],
         plugins: [
             // these are babel comfigurations
             babel({
